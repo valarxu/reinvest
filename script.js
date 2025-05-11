@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // 预设的常用复利曲线数据
     const presetRates = [
-        { rate: 5, label: '5%复利' },
-        { rate: 8, label: '8%复利' },
-        { rate: 15, label: '15%复利' }
+        { rate: 10, label: '10%复利' },
+        { rate: 20, label: '20%复利' },
+        { rate: 30, label: '30%复利' }
     ];
 
     let chart = null;
@@ -101,7 +101,13 @@ document.addEventListener('DOMContentLoaded', async function() {
                         title: {
                             display: true,
                             text: '增长倍数（初始值=1）'
-                        }
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return value + '倍';
+                            }
+                        },
+                        suggestedMax: 10 // 设置Y轴最大值为10倍
                     },
                     x: {
                         title: {
